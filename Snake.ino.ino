@@ -1,4 +1,5 @@
 #include <Rainbowduino.h>
+#include "dot.h"
 #include "dotrule.h"
 #include "edgescorer.h"
 #include "gamerule.h"
@@ -11,7 +12,8 @@
 #include "world.h"
 #include "worldrenderer.h"
 
-World world;
+Dot dot;
+World world(&dot);
 Snake snake(&world);
 
 WorldRenderer world_renderer(&world, &snake);

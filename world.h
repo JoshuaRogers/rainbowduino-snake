@@ -3,11 +3,13 @@
 
 #include "coordinate.h"
 
+class Dot;
+
 class World {
   public:
-    enum Entity { Empty, Dot, Snake };
+    enum Entity { Empty, Berry, Snake };
   
-    World();
+    World(Dot* dot);
     Entity get_entity(Coordinate coordinate);
     bool is_valid(Coordinate coordinate);
     void set_entity(Coordinate coordinate, Entity entity);
@@ -15,6 +17,7 @@ class World {
     Coordinate get_dot_coordinate();
 
   private:
+    Dot* m_dot;
     World::Entity m_entity[4][4][4];
     Coordinate m_dot_coordinate;
 };

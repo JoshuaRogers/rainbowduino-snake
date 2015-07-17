@@ -34,9 +34,9 @@ void WorldRenderer::draw() {
 uint32_t WorldRenderer::get_draw_color(World::Entity entity) {
   if (entity == World::Snake)
   {
-    return 0x0000FF;
+    return 0x000088;
   }
-  else if (entity == World::Dot)
+  else if (entity == World::Berry)
   {
     uint32_t red = 100 + m_snake->hunger;
     uint32_t green = 100 - m_snake->hunger;
@@ -44,8 +44,8 @@ uint32_t WorldRenderer::get_draw_color(World::Entity entity) {
   }
   else if (entity == World::Empty)
   {
-    return 0x777777;    
+    return 0x444444;    
   }
-  return 0x00FFFF;
+  return 0x008888;
 }
 

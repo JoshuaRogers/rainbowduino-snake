@@ -1,7 +1,8 @@
 #include <rainbowduino.h>
+#include "dot.h"
 #include "world.h"
 
-World::World() {
+World::World(Dot* dot) : m_dot(dot) {
   for (Entity* entity = &m_entity[0][0][0]; entity <= &m_entity[3][3][3]; entity++)
   {
     *entity = Empty;
@@ -26,12 +27,12 @@ void World::set_entity(Coordinate coordinate, Entity entity) {
     return;
   }
 
-  if (get_entity(coordinate) == Dot)
+  if (get_entity(coordinate) == Berry)
   {
     m_dot_coordinate = Coordinate();
   }
 
-  if (entity == Dot)
+  if (entity == Berry)
   {
     m_dot_coordinate = coordinate;
   }
@@ -51,7 +52,7 @@ void World::place_dot() {
     possible_dot.y = random(0, 4);
   } while(get_entity(possible_dot) != Empty);
 
-  set_entity(possible_dot, Dot);
+  set_entity(possible_dot, Berry);
 }
 
 Coordinate World::get_dot_coordinate() {
