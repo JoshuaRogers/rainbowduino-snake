@@ -7,6 +7,8 @@
 
 class World;
 
+// QBert Terrance Bloodthirster
+
 class Snake {
   public:
     Snake(World* world);
