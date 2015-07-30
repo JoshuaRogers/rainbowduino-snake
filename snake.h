@@ -1,7 +1,7 @@
 #ifndef __SNAKE_H__
 #define __SNAKE_H__
 
-#define MAX_SNAKE_SIZE 7
+#define MAX_SNAKE_SIZE 10
 
 #include "coordinate.h"
 
