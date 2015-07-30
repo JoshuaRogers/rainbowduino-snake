@@ -11,11 +11,9 @@ DotSpawnRule::DotSpawnRule(World* world, Snake* snake, Dot* dot) : m_world(world
 void DotSpawnRule::execute() {
   if (m_dot->is_spawned())
   {
-    Serial.println("Spawned");
     return;
   }
 
-  Serial.println("Spawning in " + String(m_spawn_delay));
   if (m_spawn_delay == 0)
   {
     m_spawn_delay = random(256, 1024);

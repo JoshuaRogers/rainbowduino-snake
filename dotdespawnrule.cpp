@@ -10,5 +10,6 @@ void DotDespawnRule::execute() {
   if (m_dot->position == m_snake->get_head())
   {
     m_dot->clear();
+    m_snake->grow();
   }
 }

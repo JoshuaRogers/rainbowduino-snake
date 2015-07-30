@@ -14,6 +14,7 @@ class Snake {
     Snake(World* world);
     Coordinate get_head();
     void move(Coordinate head);
+    void grow();
   
   private:
     World* m_world;

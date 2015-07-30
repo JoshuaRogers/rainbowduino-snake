@@ -33,7 +33,6 @@ MoveRule* build_move_rule() {
  */
 void setup() {
   Rb.init();
-  Serial.begin(9600);
 
   rule_book.add_rule(new DotDespawnRule(&snake, &dot));
   rule_book.add_rule(new DotRipenRule(&dot));
