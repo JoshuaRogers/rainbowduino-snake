@@ -3,12 +3,12 @@
 
 #include "world.h"
 
-// Does not belong.
+class Dot;
 class Snake;
 
 class WorldRenderer {
   public:
-    WorldRenderer(World* world, Snake* snake);
+    WorldRenderer(World* world, Snake* snake, Dot* dot);
     void draw();
 
   private:
@@ -16,6 +16,8 @@ class WorldRenderer {
 
     // This really doesn't belong here. We need to change the concept of hunger to ripeness.
     Snake* m_snake;
+
+    Dot* m_dot;
 
     uint32_t get_draw_color(World::Entity entity);
 };

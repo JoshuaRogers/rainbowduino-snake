@@ -11,13 +11,14 @@ class Dot {
     bool is_spawned();
     bool is_ripe();
 
+    int get_age();
+
     void clear();
     void spawn(Coordinate coordinate);
     void ripen();
 
   private:
-    bool m_is_spawned;
-    unsigned int m_ticks_till_ripe;
+    int m_age;
 };
 
 #endif

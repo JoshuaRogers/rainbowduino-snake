@@ -1,31 +1,31 @@
 #include <rainbowduino.h>
+#include "dot.h"
 #include "hungerscorer.h"
 #include "snake.h"
 #include "world.h"
 
 #define HUNGER_THRESHOLD 1000
 
-HungerScorer::HungerScorer(World* world, Snake* snake) : m_snake(snake), m_world(world) {
+HungerScorer::HungerScorer(World* world, Snake* snake, Dot* dot) : m_world(world), m_snake(snake), m_dot(dot) {
 }
 
 double HungerScorer::weigh(Coordinate coordinate) {
-  Coordinate dot = m_world->get_dot_coordinate();
-  if (!m_world->is_valid(dot))
+  if (!m_world->is_valid(m_dot->position))
   {
     return 0;
   }
 
-  if (m_snake->hunger < 0)
+  if (!m_dot->is_ripe())
   {
     // If the candidate is the dot, but we are still full, avoid it.
     // Otherwise, we don't care.
-    return coordinate == dot ? -100 : 0;
+    return coordinate == m_dot->position ? -100 : 0;
   }
 
   Coordinate head = m_snake->get_head();
 
-  int snake_distance = abs(head.z - dot.z) + abs(head.x - dot.x) + abs(head.y - dot.y);
-  int candidate_distance = abs(coordinate.z - dot.z) + abs(coordinate.x - dot.x) + abs(coordinate.y - dot.y);
-  return candidate_distance < snake_distance ? m_snake->hunger: -m_snake->hunger;
+  int snake_distance = abs(head.z - m_dot->position.z) + abs(head.x - m_dot->position.x) + abs(head.y - m_dot->position.y);
+  int candidate_distance = abs(coordinate.z - m_dot->position.z) + abs(coordinate.x - m_dot->position.x) + abs(coordinate.y - m_dot->position.y);
+  return candidate_distance < snake_distance ? m_dot->get_age(): -m_dot->get_age();
 }
 

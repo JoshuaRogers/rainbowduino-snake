@@ -1,33 +1,33 @@
 #include <rainbowduino.h>
 #include "dot.h"
 
-Dot::Dot() : m_is_spawned(false) {
+Dot::Dot() : m_age(0) {
   
 }
 
 bool Dot::is_spawned() {
-  return m_is_spawned;
+  return m_age > 0;
 }
 
 bool Dot::is_ripe() {
-  return m_ticks_till_ripe == 0;
+  return m_age > 100;
+}
+
+int Dot::get_age() {
+  return m_age;
 }
 
 void Dot::clear() {
-  m_is_spawned = false;
   position = Coordinate();
+  m_age = 0;
 }
 
 void Dot::spawn(Coordinate coordinate) {
-  m_is_spawned = true;
   position = coordinate;
-  m_ticks_till_ripe = random(100, 500);
+  m_age = 1;
 }
 
 void Dot::ripen() {
-  if (m_ticks_till_ripe > 0)
-  {
-    m_ticks_till_ripe--;
-  }
+  m_age++;
 }
 

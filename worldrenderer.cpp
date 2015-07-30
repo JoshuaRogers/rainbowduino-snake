@@ -8,9 +8,10 @@ unsigned char BLUE[64] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 
 int color = 0;
 
-WorldRenderer::WorldRenderer(World* world, Snake* snake) {
+WorldRenderer::WorldRenderer(World* world, Snake* snake, Dot* dot) {
   m_world = world;
   m_snake = snake;
+  m_dot = dot;
 }
 
 /**
@@ -37,7 +38,7 @@ void WorldRenderer::draw() {
 uint32_t WorldRenderer::get_draw_color(World::Entity entity) {
   if (entity == World::Snake)
   {
-            uint32_t c = RED[color];
+    uint32_t c = RED[color];
     c = c << 8;
     c += GREEN[color];
     c = c << 8;
@@ -46,10 +47,7 @@ uint32_t WorldRenderer::get_draw_color(World::Entity entity) {
   }
   else if (entity == World::Berry)
   {
-    uint32_t red = 100 + m_snake->hunger;
-    uint32_t green = 100 - m_snake->hunger;
-    return (red << 16) + (green << 8) + red;
-//    return 0xFFFFFF;
+    return 0xFFFFFF;
   }
   else if (entity == World::Empty)
   {

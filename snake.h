@@ -14,13 +14,6 @@ class Snake {
     Snake(World* world);
     Coordinate get_head();
     void move(Coordinate head);
-
-    /**
-     * The snake's current hunger level. (-100 to 100)
-     * 
-     * -100 is terribly full. 100 is famished.
-     */
-    int hunger;
   
   private:
     World* m_world;
