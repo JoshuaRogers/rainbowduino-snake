@@ -6,9 +6,10 @@
 #include "edgescorer.h"
 #include "gamerule.h"
 #include "hungerscorer.h"
+#include "linkedlist.h"
 #include "moverule.h"
+#include "node.h"
 #include "randomscorer.h"
-#include "rulebook.h"
 #include "snake.h"
 #include "world.h"
 #include "worldrenderer.h"
@@ -18,7 +19,7 @@ World world;
 Snake snake(&world);
 
 WorldRenderer world_renderer(&world, &snake, &dot);
-RuleBook rule_book;
+LinkedList<GameRule*> rule_book;
 
 MoveRule* build_move_rule() {
   MoveRule* move_rule = new MoveRule(&world, &snake);
@@ -34,17 +35,20 @@ MoveRule* build_move_rule() {
 void setup() {
   Rb.init();
 
-  rule_book.add_rule(new DotDespawnRule(&snake, &dot));
-  rule_book.add_rule(new DotRipenRule(&dot));
-  rule_book.add_rule(new DotSpawnRule(&world, &snake, &dot));
-  rule_book.add_rule(build_move_rule());
+  rule_book.add(new DotDespawnRule(&snake, &dot));
+  rule_book.add(new DotRipenRule(&dot));
+  rule_book.add(new DotSpawnRule(&world, &snake, &dot));
+  rule_book.add(build_move_rule());
 }
 
 /**
  * Arduino Loop.
  */
 void loop() {
-  rule_book.execute();
+  for (Node<GameRule*>* node = rule_book.get_head(); node != 0; node = node->next)
+  {
+    node->get_value()->execute();    
+  }
   world_renderer.draw();
   delay(100);
 }
