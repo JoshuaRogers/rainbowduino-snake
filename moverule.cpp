@@ -1,20 +1,15 @@
 #include <rainbowduino.h>
 #include "moverule.h"
 #include "movescorer.h"
+#include "node.h"
 #include "snake.h"
 #include "world.h"
 
-MoveRule::MoveRule(World* world, Snake* snake) : m_snake(snake), m_world(world), m_scorer_count(0) {
+MoveRule::MoveRule(World* world, Snake* snake) : m_snake(snake), m_world(world) {
 }
 
-bool MoveRule::add_scorer(MoveScorer* scorer) {
-  if (m_scorer_count == MAX_SCORERS) {
-    return false;
-  }
-  
-  m_scorers[m_scorer_count] = scorer;
-  m_scorer_count++;
-  return true;
+void MoveRule::add_scorer(MoveScorer* scorer) {
+  m_scorers.add(scorer);
 }
 
 void MoveRule::execute() {
@@ -52,9 +47,9 @@ bool MoveRule::is_move_valid(Coordinate coordinate) {
 
 double MoveRule::score(Coordinate coordinate) {
   int score = 0;
-  for (int i = 0; i < m_scorer_count; i++)
+  for (Node<MoveScorer*>* node = m_scorers.get_head(); node != 0; node = node->next)
   {
-    score += m_scorers[i]->weigh(coordinate);
+    score += node->get_value()->weigh(coordinate);
   }
 
   return score;

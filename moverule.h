@@ -3,8 +3,7 @@
 
 #include "coordinate.h"
 #include "gamerule.h"
-
-#define MAX_SCORERS 10
+#include "linkedlist.h"
 
 class MoveScorer;
 class Snake;
@@ -13,7 +12,7 @@ class World;
 class MoveRule : public GameRule {
   public:
     MoveRule(World* world, Snake* snake);
-    bool add_scorer(MoveScorer* scorer);
+    void add_scorer(MoveScorer* scorer);
     void execute();
 
   private:
@@ -22,8 +21,7 @@ class MoveRule : public GameRule {
   
     Snake* m_snake;
     World* m_world;
-    MoveScorer* m_scorers[MAX_SCORERS];
-    int m_scorer_count;
+    LinkedList<MoveScorer*> m_scorers;
 };
 
 #endif
