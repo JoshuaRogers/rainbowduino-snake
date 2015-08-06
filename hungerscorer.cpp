@@ -22,7 +22,7 @@ double HungerScorer::weigh(Coordinate coordinate) {
     return coordinate == m_dot->position ? -100 : 0;
   }
 
-  Coordinate head = m_snake->get_head();
+  Coordinate head = m_snake->get_segment_position(0);
 
   int snake_distance = abs(head.z - m_dot->position.z) + abs(head.x - m_dot->position.x) + abs(head.y - m_dot->position.y);
   int candidate_distance = abs(coordinate.z - m_dot->position.z) + abs(coordinate.x - m_dot->position.x) + abs(coordinate.y - m_dot->position.y);

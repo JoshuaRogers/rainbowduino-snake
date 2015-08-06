@@ -1,3 +1,4 @@
+#include <rainbowduino.h>
 #include "snake.h"
 #include "world.h"
 
@@ -8,11 +9,9 @@ Snake::Snake(World* world) {
   m_body_size = 2;
 }
 
-Coordinate Snake::get_head() {
-  return m_body_ring_buffer[m_ring_buffer_head];
-}
-
 void Snake::move(Coordinate head) {
+  Serial.println("Snake @ " + String(head.z) + ", " + String(head.x) + ", " + String(head.y));
+  
   if (!m_world->is_valid(head))
   {
     return;
@@ -37,5 +36,14 @@ void Snake::grow() {
     m_body_ring_buffer[i] = m_body_ring_buffer[i - 1];
   }
   m_body_size++;
+}
+
+int Snake::length() {
+  return m_body_size;
+}
+
+Coordinate Snake::get_segment_position(int segment) {
+    int ring_buffer_position = (m_ring_buffer_head + segment) % length();
+    return m_body_ring_buffer[ring_buffer_position];
 }
 

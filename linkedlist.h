@@ -6,6 +6,7 @@
 template <typename T>
 class LinkedList {
   public:
+    LinkedList();
     void add(T value);
     Node<T>* get_head();
   
@@ -13,6 +14,10 @@ class LinkedList {
     Node<T>* m_node_first;
     Node<T>* m_node_last;
 };
+
+template <typename T>
+LinkedList<T>::LinkedList() : m_node_first(0), m_node_last(0) {
+}
 
 template <typename T>
 void LinkedList<T>::add(T value) {

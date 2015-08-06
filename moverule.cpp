@@ -13,7 +13,7 @@ void MoveRule::add_scorer(MoveScorer* scorer) {
 }
 
 void MoveRule::execute() {
-  Coordinate head = m_snake->get_head();
+  Coordinate head = m_snake->get_segment_position(0);
   Coordinate candidates[6] = {
     Coordinate(head.z + 1, head.x, head.y),
     Coordinate(head.z - 1, head.x, head.y),

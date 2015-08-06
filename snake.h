@@ -12,9 +12,10 @@ class World;
 class Snake {
   public:
     Snake(World* world);
-    Coordinate get_head();
     void move(Coordinate head);
     void grow();
+    int length();
+    Coordinate get_segment_position(int segment);
   
   private:
     World* m_world;

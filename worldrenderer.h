@@ -1,25 +1,19 @@
 #ifndef __WORLDRENDERER_H__
 #define __WORLDRENDERER_H__
 
+#include "renderer.h"
 #include "world.h"
 
 class Dot;
 class Snake;
 
-class WorldRenderer {
+class WorldRenderer : public Renderer {
   public:
-    WorldRenderer(World* world, Snake* snake, Dot* dot);
-    void draw();
+    WorldRenderer(World* world);
+    void render(Display* display);
 
   private:
     World* m_world;
-
-    // This really doesn't belong here. We need to change the concept of hunger to ripeness.
-    Snake* m_snake;
-
-    Dot* m_dot;
-
-    uint32_t get_draw_color(World::Entity entity);
 };
 
 #endif
