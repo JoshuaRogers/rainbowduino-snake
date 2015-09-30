@@ -19,6 +19,7 @@
 #include "worldrenderer.h"
 
 #define TICKS_PER_REDRAW 8
+#define FRAME_DELAY_MILLIS 20
 
 Display *display;
 
@@ -84,8 +85,17 @@ void loop() {
   
   for (int i = 0; i < TICKS_PER_REDRAW; i++)
   {
+    uint32_t start = millis();
     display->draw(i);
-    delay(25);
+    uint32_t delay_time = FRAME_DELAY_MILLIS - (millis() - start);
+    uint32_t safe_delay_time = min(max(delay_time, 0), FRAME_DELAY_MILLIS);
+
+    if (safe_delay_time < 0)
+    {
+      Serial.println("Can't keep up!");
+    }
+    
+    delay(safe_delay_time);
   }
 }
 

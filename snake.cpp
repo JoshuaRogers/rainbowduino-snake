@@ -10,8 +10,6 @@ Snake::Snake(World* world) {
 }
 
 void Snake::move(Coordinate head) {
-  Serial.println("Snake @ " + String(head.z) + ", " + String(head.x) + ", " + String(head.y));
-  
   if (!m_world->is_valid(head))
   {
     return;
