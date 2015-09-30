@@ -18,7 +18,7 @@
 #include "world.h"
 #include "worldrenderer.h"
 
-#define TICKS_PER_REDRAW 15
+#define TICKS_PER_REDRAW 8
 
 Display *display;
 
@@ -85,7 +85,7 @@ void loop() {
   for (int i = 0; i < TICKS_PER_REDRAW; i++)
   {
     display->draw(i);
-    delay(10);
+    delay(25);
   }
 }
 
