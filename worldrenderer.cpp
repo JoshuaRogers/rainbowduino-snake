@@ -1,6 +1,6 @@
 #include "worldrenderer.h"
 
-WorldRenderer::WorldRenderer(World* world) : m_world(world) {
+WorldRenderer::WorldRenderer(World* world) : m_world(world), m_ticks(0) {
 
 }
 
@@ -18,10 +18,14 @@ void WorldRenderer::render(Display* display) {
         World::Entity entity = m_world->get_entity(coordinate);
         if (entity == World::Empty)
         {
-          display->set_pixel(coordinate, 0x111111);
+          display->set_pixel(coordinate, m_ticks < 100 ? 0x000000 : 0x111111);
         }
       }
     }
   }
+}
+
+void WorldRenderer::update() {
+  m_ticks++;
 }
 

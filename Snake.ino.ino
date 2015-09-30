@@ -78,6 +78,7 @@ void loop() {
   display->prepare_buffer();
   for (Node<Renderer*>* node = renderers.get_head(); node != 0; node = node->next)
   {
+    node->get_value()->update();
     node->get_value()->render(display);
   }
   

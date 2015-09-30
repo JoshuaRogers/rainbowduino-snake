@@ -12,3 +12,7 @@ void DotRenderer::render(Display* display) {
   }
 }
 
+void DotRenderer::update() {
+  
+}
+

@@ -10,6 +10,7 @@ class DotRenderer : public Renderer {
   public:
     DotRenderer(Dot* dot, World* world);
     void render(Display* display);
+    void update();
 
   protected:
     Dot* m_dot;

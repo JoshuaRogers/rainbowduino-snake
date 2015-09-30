@@ -8,7 +8,8 @@ class Snake;
 class SnakeRenderer : public Renderer {
   public:
     SnakeRenderer(Snake* snake);
-    void render(Display* display); 
+    void render(Display* display);
+    void update();
     
   private:
     uint32_t get_color(int i);

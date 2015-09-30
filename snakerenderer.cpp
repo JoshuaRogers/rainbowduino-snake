@@ -9,10 +9,13 @@ SnakeRenderer::SnakeRenderer(Snake* snake) : m_snake(snake), m_color_head(0) {
 }
 
 void SnakeRenderer::render(Display* display) {
-   m_color_head = (m_color_head + 1) % 64;
    for (int i = 0; i < m_snake->length(); i++) {
      display->set_pixel(m_snake->get_segment_position(i), get_color(m_color_head));
    }
+}
+
+void SnakeRenderer::update() {
+   m_color_head = (m_color_head + 1) % 64;
 }
 
 uint32_t SnakeRenderer::get_color(int i) {
