@@ -4,8 +4,9 @@
 #include "snake.h"
 #include "world.h"
 
-class GameRule {
-  public:
+class GameRule
+{
+public:
     virtual void execute() = 0;
 };
 

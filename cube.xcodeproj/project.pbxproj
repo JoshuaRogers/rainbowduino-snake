@@ -9,7 +9,7 @@
 /* Begin PBXFileReference section */
 		F6476B6F1BC5F95B00D29B1D /* coordinate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coordinate.cpp; sourceTree = "<group>"; };
 		F6476B701BC5F95B00D29B1D /* coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coordinate.h; sourceTree = "<group>"; };
-		F6476B711BC5F95B00D29B1D /* cube.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.ino; sourceTree = "<group>"; };
+		F6476B711BC5F95B00D29B1D /* cube.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = cube.ino; sourceTree = "<group>"; };
 		F6476B721BC5F95B00D29B1D /* display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = display.cpp; sourceTree = "<group>"; };
 		F6476B731BC5F95B00D29B1D /* display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = display.h; sourceTree = "<group>"; };
 		F6476B741BC5F95B00D29B1D /* dot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dot.cpp; sourceTree = "<group>"; };

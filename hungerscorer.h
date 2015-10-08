@@ -7,12 +7,13 @@ class Dot;
 class Snake;
 class World;
 
-class HungerScorer : public MoveScorer {
-  public:
+class HungerScorer : public MoveScorer
+{
+public:
     HungerScorer(World* world, Snake* snake, Dot* dot);
     double weigh(Coordinate coordinate);
-
-  private:
+    
+private:
     World* m_world;
     Snake* m_snake;
     Dot* m_dot;

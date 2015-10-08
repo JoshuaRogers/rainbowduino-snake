@@ -5,12 +5,13 @@
 
 class Dot;
 
-class DotRipenRule : public GameRule {
-  public:
+class DotRipenRule : public GameRule
+{
+public:
     DotRipenRule(Dot* dot);
     void execute();
-  
-  private:
+    
+private:
     Dot* m_dot;
 };
 

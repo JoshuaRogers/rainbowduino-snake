@@ -6,7 +6,7 @@
 #include <rainbowduino.h>
 #include "randomscorer.h"
 
-double RandomScorer::weigh(Coordinate coordinate) {
+double RandomScorer::weigh(Coordinate coordinate)
+{
   return random(0, 11) - 6;
 }
-

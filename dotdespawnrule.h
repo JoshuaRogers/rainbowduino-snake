@@ -6,12 +6,13 @@
 class Dot;
 class Snake;
 
-class DotDespawnRule : public GameRule {
-  public:
+class DotDespawnRule : public GameRule
+{
+public:
     DotDespawnRule(Snake* snake, Dot* dot);
     void execute();
     
-  private:
+private:
     Snake* m_snake;
     Dot* m_dot;
 };

@@ -3,21 +3,22 @@
 
 #include "coordinate.h"
 
-class Dot {
-  public:
+class Dot
+{
+public:
     Dot();
-  
+    
     Coordinate position;
     bool is_spawned();
     bool is_ripe();
-
+    
     int get_age();
-
+    
     void clear();
     void spawn(Coordinate coordinate);
     void ripen();
-
-  private:
+    
+private:
     int m_age;
 };
 

@@ -3,8 +3,9 @@
 
 #include "display.h"
 
-class Renderer {
-  public:
+class Renderer
+{
+public:
     virtual void render(Display* display) = 0;
     virtual void update() = 0;
 };

@@ -7,13 +7,14 @@
 class Dot;
 class Snake;
 
-class WorldRenderer : public Renderer {
-  public:
+class WorldRenderer : public Renderer
+{
+public:
     WorldRenderer(World* world);
     void render(Display* display);
     void update();
-
-  private:
+    
+private:
     World* m_world;
     int m_ticks;
 };

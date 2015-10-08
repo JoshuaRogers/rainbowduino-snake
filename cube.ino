@@ -32,70 +32,66 @@ LinkedList<GameRule*> rule_book;
 
 MoveRule* build_move_rule()
 {
-  MoveRule* move_rule = new MoveRule(&world, &snake);
-  move_rule->add_scorer(new EdgeScorer());
-  move_rule->add_scorer(new HungerScorer(&world, &snake, &dot));
-  move_rule->add_scorer(new RandomScorer());
-  return move_rule;
+    MoveRule* move_rule = new MoveRule(&world, &snake);
+    move_rule->add_scorer(new EdgeScorer());
+    move_rule->add_scorer(new HungerScorer(&world, &snake, &dot));
+    move_rule->add_scorer(new RandomScorer());
+    return move_rule;
 }
 
 void initialize_rules()
 {
-  rule_book.add(new DotDespawnRule(&snake, &dot));
-  rule_book.add(new DotRipenRule(&dot));
-  rule_book.add(new DotSpawnRule(&world, &snake, &dot));
-  rule_book.add(build_move_rule());
+    rule_book.add(new DotDespawnRule(&snake, &dot));
+    rule_book.add(new DotRipenRule(&dot));
+    rule_book.add(new DotSpawnRule(&world, &snake, &dot));
+    rule_book.add(build_move_rule());
 }
 
 void initialize_renderers()
 {
-  renderers.add(new DotRenderer(&dot, &world));
-  renderers.add(new SnakeRenderer(&snake));
-  renderers.add(new WorldRenderer(&world));
+    renderers.add(new DotRenderer(&dot, &world));
+    renderers.add(new SnakeRenderer(&snake));
+    renderers.add(new WorldRenderer(&world));
 }
 
 /**
  * Arduino Initialization
  */
 void setup() {
-  Rb.init();
-  Serial.begin(9600);
+    Rb.init();
+    Serial.begin(9600);
 
-  initialize_rules();
-  initialize_renderers();
-  display = new Display(TICKS_PER_REDRAW);
-  Serial.println("Setup complete");
+    initialize_rules();
+    initialize_renderers();
+    display = new Display(TICKS_PER_REDRAW);
+    Serial.println("Setup complete");
 }
 
 /**
  * Arduino Loop.
  */
 void loop() {
-  for (Node<GameRule*>* node = rule_book.get_head(); node != 0; node = node->next)
-  {
-    node->get_value()->execute();    
-  }
-
-  display->prepare_buffer();
-  for (Node<Renderer*>* node = renderers.get_head(); node != 0; node = node->next)
-  {
-    node->get_value()->update();
-    node->get_value()->render(display);
-  }
-  
-  for (int i = 0; i < TICKS_PER_REDRAW; i++)
-  {
-    uint32_t start = millis();
-    display->draw(i);
-    uint32_t delay_time = FRAME_DELAY_MILLIS - (millis() - start);
-    uint32_t safe_delay_time = min(max(delay_time, 0), FRAME_DELAY_MILLIS);
-
-    if (safe_delay_time < 0)
-    {
-      Serial.println("Can't keep up!");
+    for (Node<GameRule*>* node = rule_book.get_head(); node != 0; node = node->next) {
+      node->get_value()->execute();
     }
+
+    display->prepare_buffer();
+    for (Node<Renderer*>* node = renderers.get_head(); node != 0; node = node->next) {
+      node->get_value()->update();
+      node->get_value()->render(display);
+    }
+  
+    for (int i = 0; i < TICKS_PER_REDRAW; i++) {
+        uint32_t start = millis();
+        display->draw(i);
+        uint32_t delay_time = FRAME_DELAY_MILLIS - (millis() - start);
+        uint32_t safe_delay_time = min(max(delay_time, 0), FRAME_DELAY_MILLIS);
+
+        if (safe_delay_time < 0) {
+            Serial.println("Can't keep up!");
+        }
     
-    delay(safe_delay_time);
-  }
+        delay(safe_delay_time);
+    }
 }
 

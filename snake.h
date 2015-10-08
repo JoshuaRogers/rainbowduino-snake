@@ -7,17 +7,16 @@
 
 class World;
 
-// QBert Terrance Bloodthirster
-
-class Snake {
-  public:
+class Snake
+{
+public:
     Snake(World* world);
     void move(Coordinate head);
     void grow();
     int length();
     Coordinate get_segment_position(int segment);
-  
-  private:
+    
+private:
     World* m_world;
     Coordinate m_body_ring_buffer[MAX_SNAKE_SIZE];
     unsigned char m_ring_buffer_head;

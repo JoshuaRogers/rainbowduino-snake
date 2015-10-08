@@ -6,13 +6,14 @@
 class Dot;
 class World;
 
-class DotRenderer : public Renderer {
-  public:
+class DotRenderer : public Renderer
+{
+public:
     DotRenderer(Dot* dot, World* world);
     void render(Display* display);
     void update();
-
-  protected:
+    
+protected:
     Dot* m_dot;
     World* m_world;
 };
