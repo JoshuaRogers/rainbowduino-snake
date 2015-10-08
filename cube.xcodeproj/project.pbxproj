@@ -48,47 +48,79 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		F6476B3D1BC5F8DE00D29B1D = {
+		F60EDC961BC608B700C13098 /* behaviors */ = {
 			isa = PBXGroup;
 			children = (
-				F6476B6F1BC5F95B00D29B1D /* coordinate.cpp */,
-				F6476B701BC5F95B00D29B1D /* coordinate.h */,
-				F6476B711BC5F95B00D29B1D /* cube.ino */,
-				F6476B721BC5F95B00D29B1D /* display.cpp */,
-				F6476B731BC5F95B00D29B1D /* display.h */,
-				F6476B741BC5F95B00D29B1D /* dot.cpp */,
-				F6476B751BC5F95B00D29B1D /* dot.h */,
+				F6476B7E1BC5F95B00D29B1D /* edgescorer.cpp */,
+				F6476B7F1BC5F95B00D29B1D /* edgescorer.h */,
+				F6476B811BC5F95B00D29B1D /* hungerscorer.cpp */,
+				F6476B821BC5F95B00D29B1D /* hungerscorer.h */,
+				F6476B881BC5F95B00D29B1D /* movescorer.h */,
+				F6476B8A1BC5F95B00D29B1D /* randomscorer.cpp */,
+				F6476B8B1BC5F95B00D29B1D /* randomscorer.h */,
+			);
+			name = behaviors;
+			sourceTree = "<group>";
+		};
+		F60EDC971BC608C700C13098 /* rules */ = {
+			isa = PBXGroup;
+			children = (
 				F6476B761BC5F95B00D29B1D /* dotdespawnrule.cpp */,
 				F6476B771BC5F95B00D29B1D /* dotdespawnrule.h */,
-				F6476B781BC5F95B00D29B1D /* dotrenderer.cpp */,
-				F6476B791BC5F95B00D29B1D /* dotrenderer.h */,
 				F6476B7A1BC5F95B00D29B1D /* dotripenrule.cpp */,
 				F6476B7B1BC5F95B00D29B1D /* dotripenrule.h */,
 				F6476B7C1BC5F95B00D29B1D /* dotspawnrule.cpp */,
 				F6476B7D1BC5F95B00D29B1D /* dotspawnrule.h */,
-				F6476B7E1BC5F95B00D29B1D /* edgescorer.cpp */,
-				F6476B7F1BC5F95B00D29B1D /* edgescorer.h */,
 				F6476B801BC5F95B00D29B1D /* gamerule.h */,
-				F6476B811BC5F95B00D29B1D /* hungerscorer.cpp */,
-				F6476B821BC5F95B00D29B1D /* hungerscorer.h */,
-				F6476B831BC5F95B00D29B1D /* LICENSE */,
-				F6476B841BC5F95B00D29B1D /* linkedlist.h */,
-				F6476B851BC5F95B00D29B1D /* Makefile */,
 				F6476B861BC5F95B00D29B1D /* moverule.cpp */,
 				F6476B871BC5F95B00D29B1D /* moverule.h */,
-				F6476B881BC5F95B00D29B1D /* movescorer.h */,
-				F6476B891BC5F95B00D29B1D /* node.h */,
-				F6476B8A1BC5F95B00D29B1D /* randomscorer.cpp */,
-				F6476B8B1BC5F95B00D29B1D /* randomscorer.h */,
+			);
+			name = rules;
+			sourceTree = "<group>";
+		};
+		F60EDC981BC6092600C13098 /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				F6476B721BC5F95B00D29B1D /* display.cpp */,
+				F6476B731BC5F95B00D29B1D /* display.h */,
+				F6476B781BC5F95B00D29B1D /* dotrenderer.cpp */,
+				F6476B791BC5F95B00D29B1D /* dotrenderer.h */,
 				F6476B8C1BC5F95B00D29B1D /* renderer.h */,
-				F6476B8D1BC5F95B00D29B1D /* snake.cpp */,
-				F6476B8E1BC5F95B00D29B1D /* snake.h */,
 				F6476B8F1BC5F95B00D29B1D /* snakerenderer.cpp */,
 				F6476B901BC5F95B00D29B1D /* snakerenderer.h */,
-				F6476B911BC5F95B00D29B1D /* world.cpp */,
-				F6476B921BC5F95B00D29B1D /* world.h */,
 				F6476B931BC5F95B00D29B1D /* worldrenderer.cpp */,
 				F6476B941BC5F95B00D29B1D /* worldrenderer.h */,
+			);
+			name = graphics;
+			sourceTree = "<group>";
+		};
+		F60EDC991BC6098E00C13098 /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				F6476B741BC5F95B00D29B1D /* dot.cpp */,
+				F6476B751BC5F95B00D29B1D /* dot.h */,
+				F6476B8D1BC5F95B00D29B1D /* snake.cpp */,
+				F6476B8E1BC5F95B00D29B1D /* snake.h */,
+				F6476B911BC5F95B00D29B1D /* world.cpp */,
+				F6476B921BC5F95B00D29B1D /* world.h */,
+			);
+			name = entities;
+			sourceTree = "<group>";
+		};
+		F6476B3D1BC5F8DE00D29B1D = {
+			isa = PBXGroup;
+			children = (
+				F60EDC961BC608B700C13098 /* behaviors */,
+				F60EDC991BC6098E00C13098 /* entities */,
+				F60EDC981BC6092600C13098 /* graphics */,
+				F60EDC971BC608C700C13098 /* rules */,
+				F6476B6F1BC5F95B00D29B1D /* coordinate.cpp */,
+				F6476B701BC5F95B00D29B1D /* coordinate.h */,
+				F6476B841BC5F95B00D29B1D /* linkedlist.h */,
+				F6476B891BC5F95B00D29B1D /* node.h */,
+				F6476B711BC5F95B00D29B1D /* cube.ino */,
+				F6476B851BC5F95B00D29B1D /* Makefile */,
+				F6476B831BC5F95B00D29B1D /* LICENSE */,
 			);
 			sourceTree = "<group>";
 		};
