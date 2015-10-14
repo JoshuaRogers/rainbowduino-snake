@@ -1297,7 +1297,7 @@ endif
 # -V Do not verify
 # -q - suppress progress output
 ifndef AVRDUDE_OPTS
-    AVRDUDE_OPTS = -q -V
+    AVRDUDE_OPTS = -q -V -v
 endif
 
 # Decouple the mcu between the compiler options (-mmcu) and the avrdude options (-p).
