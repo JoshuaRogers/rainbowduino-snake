@@ -16,14 +16,7 @@ void WorldRenderer::render(Display* display)
                 World::Entity entity = m_world->get_entity(coordinate);
 
                 if (entity == World::Empty) {
-                    // This gives a rather pleasing diagonal fade.
-                    int id = m_ticks + z + x + y;
-                    uint32_t color = id & 0x40 ? 0x010101 : 0x000000;
-                    
-                    if (id % 0x20 == 0) {
-                        color = 0x111111;
-                    }
-                    display->set_pixel(coordinate, color);
+                    display->set_pixel(coordinate, 0x000000);
                 }
             }
         }
