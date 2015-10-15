@@ -4,8 +4,6 @@
 #include "snake.h"
 #include "world.h"
 
-#define HUNGER_THRESHOLD 1000
-
 HungerScorer::HungerScorer(World* world, Snake* snake, Dot* dot) : m_world(world), m_snake(snake), m_dot(dot)
 {
 }
@@ -30,6 +28,7 @@ double HungerScorer::weigh(Coordinate coordinate)
     int candidate_distance = abs(coordinate.z - m_dot->position.z) +
                              abs(coordinate.x - m_dot->position.x) +
                              abs(coordinate.y - m_dot->position.y);
-    return candidate_distance < snake_distance ? m_dot->get_age(): -m_dot->get_age();
+    int weight = m_dot->get_age() - 100;
+    return candidate_distance < snake_distance ? weight : -weight;
 }
 

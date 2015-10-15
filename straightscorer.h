@@ -4,13 +4,16 @@
 #include "coordinate.h"
 #include "movescorer.h"
 
-class EdgeScorer : public MoveScorer
+class Snake;
+
+class StraightScorer : public MoveScorer
 {
 public:
+    StraightScorer(Snake* snake);
     double weigh(Coordinate coordinate);
     
 private:
-    bool is_edge(unsigned char point);
+    Snake* m_snake;
 };
 
 #endif

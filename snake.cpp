@@ -13,8 +13,23 @@ Snake::Snake(World* world)
 void Snake::move(Coordinate head)
 {
     if (!m_world->is_valid(head)) {
+        Serial.println("Cannot move to invalid position");
         return;
     }
+    
+    Coordinate old = get_segment_position(0);
+    int oldx = old.x;
+    int oldy = old.y;
+    int oldz = old.z;
+    int x = head.x;
+    int y = head.y;
+    int z = head.z;
+    int dx = abs(oldx - x);
+    int dy = abs(oldy - y);
+    int dz = abs(oldz - z);
+    
+    Serial.println("* " + String(head.z) + ", " + String(head.x) + ", " + String(head.y));
+    
     
     m_ring_buffer_head = (m_ring_buffer_head + 1) % m_body_size;
     Coordinate tail = m_body_ring_buffer[m_ring_buffer_head];
@@ -43,7 +58,7 @@ int Snake::length()
 
 Coordinate Snake::get_segment_position(int segment)
 {
-    int ring_buffer_position = (m_ring_buffer_head + segment) % length();
+    int ring_buffer_position = (m_ring_buffer_head - segment + length()) % length();
     return m_body_ring_buffer[ring_buffer_position];
 }
 

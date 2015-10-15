@@ -5,7 +5,6 @@
 #include "dotrenderer.h"
 #include "dotripenrule.h"
 #include "dotspawnrule.h"
-#include "edgescorer.h"
 #include "gamerule.h"
 #include "hungerscorer.h"
 #include "linkedlist.h"
@@ -15,6 +14,7 @@
 #include "renderer.h"
 #include "snake.h"
 #include "snakerenderer.h"
+#include "straightscorer.h"
 #include "world.h"
 #include "worldrenderer.h"
 
@@ -33,9 +33,9 @@ LinkedList<GameRule*> rule_book;
 MoveRule* build_move_rule()
 {
     MoveRule* move_rule = new MoveRule(&world, &snake);
-    move_rule->add_scorer(new EdgeScorer());
     move_rule->add_scorer(new HungerScorer(&world, &snake, &dot));
     move_rule->add_scorer(new RandomScorer());
+    move_rule->add_scorer(new StraightScorer(&snake));
     return move_rule;
 }
 

@@ -22,8 +22,8 @@
 		F6476B7B1BC5F95B00D29B1D /* dotripenrule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dotripenrule.h; sourceTree = "<group>"; };
 		F6476B7C1BC5F95B00D29B1D /* dotspawnrule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dotspawnrule.cpp; sourceTree = "<group>"; };
 		F6476B7D1BC5F95B00D29B1D /* dotspawnrule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dotspawnrule.h; sourceTree = "<group>"; };
-		F6476B7E1BC5F95B00D29B1D /* edgescorer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = edgescorer.cpp; sourceTree = "<group>"; };
-		F6476B7F1BC5F95B00D29B1D /* edgescorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edgescorer.h; sourceTree = "<group>"; };
+		F6476B7E1BC5F95B00D29B1D /* straightscorer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = straightscorer.cpp; sourceTree = "<group>"; };
+		F6476B7F1BC5F95B00D29B1D /* straightscorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = straightscorer.h; sourceTree = "<group>"; };
 		F6476B801BC5F95B00D29B1D /* gamerule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gamerule.h; sourceTree = "<group>"; };
 		F6476B811BC5F95B00D29B1D /* hungerscorer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hungerscorer.cpp; sourceTree = "<group>"; };
 		F6476B821BC5F95B00D29B1D /* hungerscorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hungerscorer.h; sourceTree = "<group>"; };
@@ -51,8 +51,8 @@
 		F60EDC961BC608B700C13098 /* behaviors */ = {
 			isa = PBXGroup;
 			children = (
-				F6476B7E1BC5F95B00D29B1D /* edgescorer.cpp */,
-				F6476B7F1BC5F95B00D29B1D /* edgescorer.h */,
+				F6476B7E1BC5F95B00D29B1D /* straightscorer.cpp */,
+				F6476B7F1BC5F95B00D29B1D /* straightscorer.h */,
 				F6476B811BC5F95B00D29B1D /* hungerscorer.cpp */,
 				F6476B821BC5F95B00D29B1D /* hungerscorer.h */,
 				F6476B881BC5F95B00D29B1D /* movescorer.h */,
