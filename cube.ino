@@ -5,6 +5,8 @@
 #include "dotrenderer.h"
 #include "dotripenrule.h"
 #include "dotspawnrule.h"
+#include "game.h"
+#include "gamebuilder.h"
 #include "gamerule.h"
 #include "hungerscorer.h"
 #include "linkedlist.h"
@@ -22,36 +24,34 @@
 #define FRAME_DELAY_MILLIS 20
 
 Display *display;
-
-Dot dot;
-World world;
-Snake snake(&world);
+GameBuilder game_builder;
+Game* game;
 
 LinkedList<Renderer*> renderers;
 LinkedList<GameRule*> rule_book;
 
 MoveRule* build_move_rule()
 {
-    MoveRule* move_rule = new MoveRule(&world, &snake);
-    move_rule->add_scorer(new HungerScorer(&world, &snake, &dot));
+    MoveRule* move_rule = new MoveRule(game->world, game->snake);
+    move_rule->add_scorer(new HungerScorer(game->world, game->snake, game->dot));
     move_rule->add_scorer(new RandomScorer());
-    move_rule->add_scorer(new StraightScorer(&snake));
+    move_rule->add_scorer(new StraightScorer(game->snake));
     return move_rule;
 }
 
 void initialize_rules()
 {
-    rule_book.add(new DotDespawnRule(&snake, &dot));
-    rule_book.add(new DotRipenRule(&dot));
-    rule_book.add(new DotSpawnRule(&world, &snake, &dot));
+    rule_book.add(new DotDespawnRule(game->snake, game->dot));
+    rule_book.add(new DotRipenRule(game->dot));
+    rule_book.add(new DotSpawnRule(game->world, game->snake, game->dot));
     rule_book.add(build_move_rule());
 }
 
 void initialize_renderers()
 {
-    renderers.add(new DotRenderer(&dot, &world));
-    renderers.add(new SnakeRenderer(&snake));
-    renderers.add(new WorldRenderer(&world));
+    renderers.add(new DotRenderer(game->dot, game->world));
+    renderers.add(new SnakeRenderer(game->snake));
+    renderers.add(new WorldRenderer(game->world));
 }
 
 /**
@@ -61,6 +61,7 @@ void setup() {
     Rb.init();
     Serial.begin(9600);
 
+    game = game_builder.build();
     initialize_rules();
     initialize_renderers();
     display = new Display(TICKS_PER_REDRAW);
