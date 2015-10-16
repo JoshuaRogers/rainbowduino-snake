@@ -3,20 +3,12 @@
 
 #include "movescorer.h"
 
-class Dot;
-class Snake;
-class World;
+class Game;
 
 class HungerScorer : public MoveScorer
 {
 public:
-    HungerScorer(World* world, Snake* snake, Dot* dot);
-    double weigh(Coordinate coordinate);
-    
-private:
-    World* m_world;
-    Snake* m_snake;
-    Dot* m_dot;
+    double weigh(Game* game, Coordinate coordinate);
 };
 
 #endif

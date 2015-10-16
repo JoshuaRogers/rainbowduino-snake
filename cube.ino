@@ -32,10 +32,10 @@ LinkedList<GameRule*> rule_book;
 
 MoveRule* build_move_rule()
 {
-    MoveRule* move_rule = new MoveRule(game->world, game->snake);
-    move_rule->add_scorer(new HungerScorer(game->world, game->snake, game->dot));
+    MoveRule* move_rule = new MoveRule(game);
+    move_rule->add_scorer(new HungerScorer());
     move_rule->add_scorer(new RandomScorer());
-    move_rule->add_scorer(new StraightScorer(game->snake));
+    move_rule->add_scorer(new StraightScorer());
     return move_rule;
 }
 

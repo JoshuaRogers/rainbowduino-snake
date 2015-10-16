@@ -9,11 +9,7 @@ class Snake;
 class StraightScorer : public MoveScorer
 {
 public:
-    StraightScorer(Snake* snake);
-    double weigh(Coordinate coordinate);
-    
-private:
-    Snake* m_snake;
+    double weigh(Game* game, Coordinate coordinate);
 };
 
 #endif

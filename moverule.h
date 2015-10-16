@@ -5,14 +5,13 @@
 #include "gamerule.h"
 #include "linkedlist.h"
 
+class Game;
 class MoveScorer;
-class Snake;
-class World;
 
 class MoveRule : public GameRule
 {
 public:
-    MoveRule(World* world, Snake* snake);
+    MoveRule(Game* game);
     void add_scorer(MoveScorer* scorer);
     void execute();
     
@@ -20,8 +19,7 @@ private:
     bool is_move_valid(Coordinate coordinate);
     double score(Coordinate coordinate);
     
-    Snake* m_snake;
-    World* m_world;
+    Game* m_game;
     LinkedList<MoveScorer*> m_scorers;
 };
 #endif

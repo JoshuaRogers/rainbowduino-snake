@@ -1,11 +1,12 @@
 #include <rainbowduino.h>
+#include "game.h"
 #include "moverule.h"
 #include "movescorer.h"
 #include "node.h"
 #include "snake.h"
 #include "world.h"
 
-MoveRule::MoveRule(World* world, Snake* snake) : m_snake(snake), m_world(world)
+MoveRule::MoveRule(Game* game) : m_game(game)
 {
 }
 
@@ -16,7 +17,7 @@ void MoveRule::add_scorer(MoveScorer* scorer)
 
 void MoveRule::execute()
 {
-    Coordinate head = m_snake->get_segment_position(0);
+    Coordinate head = m_game->snake->get_segment_position(0);
     Coordinate candidates[6] = {
         Coordinate(head.z + 1, head.x, head.y),
         Coordinate(head.z - 1, head.x, head.y),
@@ -39,19 +40,19 @@ void MoveRule::execute()
         }
     }
     
-    m_snake->move(candidates[best_candidate]);
+    m_game->snake->move(candidates[best_candidate]);
 }
 
 bool MoveRule::is_move_valid(Coordinate coordinate)
 {
-    return m_world->is_valid(coordinate) && m_world->get_entity(coordinate) != World::Snake;
+    return m_game->world->is_valid(coordinate) && m_game->world->get_entity(coordinate) != World::Snake;
 }
 
 double MoveRule::score(Coordinate coordinate)
 {
     int score = 0;
     for (Node<MoveScorer*>* node = m_scorers.get_head(); node != 0; node = node->next) {
-        score += node->get_value()->weigh(coordinate);
+        score += node->get_value()->weigh(m_game, coordinate);
     }
     
     return score;

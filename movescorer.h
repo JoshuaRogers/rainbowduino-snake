@@ -3,6 +3,8 @@
 
 #include "coordinate.h"
 
+class Game;
+
 class MoveScorer
 {
 public:
@@ -11,7 +13,7 @@ public:
      *
      * Returns: -100 to 100.
      */
-    virtual double weigh(Coordinate coordinate) = 0;
+    virtual double weigh(Game* game, Coordinate coordinate) = 0;
 };
 
 #endif

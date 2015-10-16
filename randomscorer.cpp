@@ -4,9 +4,10 @@
  */
 
 #include <rainbowduino.h>
+#include "game.h"
 #include "randomscorer.h"
 
-double RandomScorer::weigh(Coordinate coordinate)
+double RandomScorer::weigh(Game* game, Coordinate coordinate)
 {
   return random(0, 11) - 6;
 }

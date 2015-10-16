@@ -4,9 +4,11 @@
 #include "coordinate.h"
 #include "movescorer.h"
 
+class Game;
+
 class RandomScorer : public MoveScorer
 {
-    double weigh(Coordinate coordinate);
+    double weigh(Game* game, Coordinate coordinate);
 };
 
 #endif
