@@ -14,9 +14,8 @@ private:
 };
 
 template <typename T>
-Node<T>::Node(T value) : next(0)
+Node<T>::Node(T value) : next(0), m_value(value)
 {
-    m_value = value;
 }
 
 template <typename T>

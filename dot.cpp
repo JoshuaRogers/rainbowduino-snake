@@ -1,8 +1,9 @@
 #include <rainbowduino.h>
 #include "dot.h"
 
-Dot::Dot() : m_age(0)
+Dot::Dot()
 {
+    clear();
 }
 
 bool Dot::is_spawned()

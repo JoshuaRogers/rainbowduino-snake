@@ -2,12 +2,14 @@
 #include "snake.h"
 #include "world.h"
 
-Snake::Snake(World* world)
+Snake::Snake(World* world) : m_world(world), m_body_size(2)
 {
-    m_world = world;
-    m_body_ring_buffer[0] = Coordinate(0, 0, 0);
+    for (int i = 0; i < MAX_SNAKE_SIZE; i++)
+    {
+        m_body_ring_buffer[i] = Coordinate(0, 0, 0);
+    }
+    
     m_world->set_entity(Coordinate(0, 0, 0), World::Snake);
-    m_body_size = 2;
 }
 
 void Snake::move(Coordinate head)
