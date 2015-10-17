@@ -6,9 +6,9 @@
 
 Game* GameBuilder::build()
 {
-    Dot* dot = new Dot();
-    World* world = new World();
-    Snake* snake = new Snake(world);
+    Dot dot = new Dot();
+    World world = new World();
+    Snake snake = new Snake(world);
 
     Game* game = new Game(world, snake, dot);
     return game;

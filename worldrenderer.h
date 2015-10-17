@@ -4,19 +4,11 @@
 #include "renderer.h"
 #include "world.h"
 
-class Dot;
-class Snake;
-
 class WorldRenderer : public Renderer
 {
 public:
-    WorldRenderer(World* world);
-    void render(Display* display);
+    void render(Game* game, Display* display);
     void update();
-    
-private:
-    World* m_world;
-    int m_ticks;
 };
 
 #endif

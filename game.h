@@ -8,7 +8,7 @@ class World;
 class Game
 {
 public:
-    enum State { Running, Stuck, Ending };
+    enum State { Running, Stuck, GameOver };
     
     Game(World* world, Snake* snake, Dot* dot);
     

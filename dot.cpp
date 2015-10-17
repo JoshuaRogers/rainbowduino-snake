@@ -30,7 +30,7 @@ void Dot::clear()
 void Dot::spawn(Coordinate coordinate)
 {
     position = coordinate;
-    m_age = 1;
+    m_age = 100;
 }
 
 void Dot::ripen()

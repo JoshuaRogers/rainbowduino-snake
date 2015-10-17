@@ -3,19 +3,16 @@
 
 #include "renderer.h"
 
-class Snake;
-
 class SnakeRenderer : public Renderer
 {
 public:
-    SnakeRenderer(Snake* snake);
-    void render(Display* display);
+    SnakeRenderer();
+    void render(Game* game, Display* display);
     void update();
     
 private:
     uint32_t get_color(int i);
     
-    Snake* m_snake;
     int m_color_head;
 };
 

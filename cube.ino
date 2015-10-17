@@ -1,7 +1,6 @@
 #include <Rainbowduino.h>
 #include "deathrule.h"
 #include "display.h"
-#include "dot.h"
 #include "dotdespawnrule.h"
 #include "dotrenderer.h"
 #include "dotripenrule.h"
@@ -16,10 +15,8 @@
 #include "randomscorer.h"
 #include "renderer.h"
 #include "restartrule.h"
-#include "snake.h"
 #include "snakerenderer.h"
 #include "straightscorer.h"
-#include "world.h"
 #include "worldrenderer.h"
 
 #define TICKS_PER_REDRAW 12
@@ -53,9 +50,9 @@ void initialize_rules()
 
 void initialize_renderers()
 {
-    renderers.add(new DotRenderer(game->dot, game->world));
-    renderers.add(new SnakeRenderer(game->snake));
-    renderers.add(new WorldRenderer(game->world));
+    renderers.add(new DotRenderer());
+    renderers.add(new SnakeRenderer());
+    renderers.add(new WorldRenderer());
 }
 
 /**
@@ -83,7 +80,7 @@ void loop() {
     display->prepare_buffer();
     for (Node<Renderer*>* node = renderers.get_head(); node != 0; node = node->next) {
       node->get_value()->update();
-      node->get_value()->render(display);
+      node->get_value()->render(game, display);
     }
   
     for (int i = 0; i < TICKS_PER_REDRAW; i++) {
@@ -97,6 +94,12 @@ void loop() {
         }
     
         delay(safe_delay_time);
+    }
+    
+    if (game->state == Game::GameOver) {
+        Serial.println("Restarting.");
+        delete game;
+        game = game_builder.build();
     }
 }
 
