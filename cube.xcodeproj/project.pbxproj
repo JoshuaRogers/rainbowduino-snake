@@ -11,6 +11,10 @@
 		F62755CF1BD09F4E007AB234 /* gamebuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gamebuilder.h; sourceTree = "<group>"; };
 		F62755D01BD0A192007AB234 /* gamebuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gamebuilder.cpp; sourceTree = "<group>"; };
 		F62755D11BD0A39E007AB234 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
+		F633D5E91BD20B1100D39FCF /* deathrule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = deathrule.cpp; sourceTree = "<group>"; };
+		F633D5EA1BD20B1100D39FCF /* deathrule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deathrule.h; sourceTree = "<group>"; };
+		F633D5EB1BD2A69C00D39FCF /* restartrule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = restartrule.cpp; sourceTree = "<group>"; };
+		F633D5EC1BD2A69C00D39FCF /* restartrule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = restartrule.h; sourceTree = "<group>"; };
 		F6476B6F1BC5F95B00D29B1D /* coordinate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coordinate.cpp; sourceTree = "<group>"; };
 		F6476B701BC5F95B00D29B1D /* coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coordinate.h; sourceTree = "<group>"; };
 		F6476B711BC5F95B00D29B1D /* cube.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = cube.ino; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		F60EDC971BC608C700C13098 /* rules */ = {
 			isa = PBXGroup;
 			children = (
+				F633D5E91BD20B1100D39FCF /* deathrule.cpp */,
+				F633D5EA1BD20B1100D39FCF /* deathrule.h */,
 				F6476B761BC5F95B00D29B1D /* dotdespawnrule.cpp */,
 				F6476B771BC5F95B00D29B1D /* dotdespawnrule.h */,
 				F6476B7A1BC5F95B00D29B1D /* dotripenrule.cpp */,
@@ -78,6 +84,8 @@
 				F6476B801BC5F95B00D29B1D /* gamerule.h */,
 				F6476B861BC5F95B00D29B1D /* moverule.cpp */,
 				F6476B871BC5F95B00D29B1D /* moverule.h */,
+				F633D5EB1BD2A69C00D39FCF /* restartrule.cpp */,
+				F633D5EC1BD2A69C00D39FCF /* restartrule.h */,
 			);
 			name = rules;
 			sourceTree = "<group>";
@@ -103,8 +111,6 @@
 			children = (
 				F6476B741BC5F95B00D29B1D /* dot.cpp */,
 				F6476B751BC5F95B00D29B1D /* dot.h */,
-				F62755CE1BD09ED5007AB234 /* game.h */,
-				F62755D11BD0A39E007AB234 /* game.cpp */,
 				F6476B8D1BC5F95B00D29B1D /* snake.cpp */,
 				F6476B8E1BC5F95B00D29B1D /* snake.h */,
 				F6476B911BC5F95B00D29B1D /* world.cpp */,
@@ -122,6 +128,8 @@
 				F60EDC971BC608C700C13098 /* rules */,
 				F6476B6F1BC5F95B00D29B1D /* coordinate.cpp */,
 				F6476B701BC5F95B00D29B1D /* coordinate.h */,
+				F62755CE1BD09ED5007AB234 /* game.h */,
+				F62755D11BD0A39E007AB234 /* game.cpp */,
 				F62755CF1BD09F4E007AB234 /* gamebuilder.h */,
 				F62755D01BD0A192007AB234 /* gamebuilder.cpp */,
 				F6476B841BC5F95B00D29B1D /* linkedlist.h */,

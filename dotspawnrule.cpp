@@ -12,7 +12,7 @@ DotSpawnRule::DotSpawnRule() : m_spawn_delay(50)
 
 void DotSpawnRule::execute(Game* game)
 {
-    if (game->dot->is_spawned()) {
+    if (game->dot->is_spawned() || game->state != Game::Running) {
         return;
     }
     

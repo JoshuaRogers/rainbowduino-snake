@@ -1,4 +1,5 @@
 #include <Rainbowduino.h>
+#include "deathrule.h"
 #include "display.h"
 #include "dot.h"
 #include "dotdespawnrule.h"
@@ -14,6 +15,7 @@
 #include "node.h"
 #include "randomscorer.h"
 #include "renderer.h"
+#include "restartrule.h"
 #include "snake.h"
 #include "snakerenderer.h"
 #include "straightscorer.h"
@@ -41,9 +43,11 @@ MoveRule* build_move_rule()
 
 void initialize_rules()
 {
+    rule_book.add(new DeathRule());
     rule_book.add(new DotDespawnRule());
     rule_book.add(new DotRipenRule());
     rule_book.add(new DotSpawnRule());
+    rule_book.add(new RestartRule());
     rule_book.add(build_move_rule());
 }
 

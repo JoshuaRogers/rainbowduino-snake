@@ -8,11 +8,14 @@ class World;
 class Game
 {
 public:
+    enum State { Running, Stuck, Ending };
+    
     Game(World* world, Snake* snake, Dot* dot);
     
     World* const world;
     Snake* const snake;
     Dot* const dot;
+    State state;
 };
 
 #endif

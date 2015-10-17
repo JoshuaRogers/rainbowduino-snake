@@ -13,6 +13,11 @@ void MoveRule::add_scorer(MoveScorer* scorer)
 
 void MoveRule::execute(Game* game)
 {
+    if (game->state != Game::Running)
+    {
+        return;
+    }
+    
     Coordinate head = game->snake->get_segment_position(0);
     Coordinate candidates[6] = {
         Coordinate(head.z + 1, head.x, head.y),
@@ -36,7 +41,9 @@ void MoveRule::execute(Game* game)
         }
     }
     
-    game->snake->move(candidates[best_candidate]);
+    if (is_move_valid(game, candidates[best_candidate])) {
+        game->snake->move(candidates[best_candidate]);
+    }
 }
 
 bool MoveRule::is_move_valid(Game* game, Coordinate coordinate)
