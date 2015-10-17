@@ -8,8 +8,8 @@
 
 double StraightScorer::weigh(Game* game, Coordinate coordinate)
 {
-    Coordinate head = game->snake->get_segment_position(0);
-    Coordinate neck = game->snake->get_segment_position(1);
+    Coordinate head = game->snake.get_segment_position(0);
+    Coordinate neck = game->snake.get_segment_position(1);
     Coordinate forward = Coordinate(head.z + (head.z - neck.z), head.x + (head.x - neck.x), head.y + (head.y - neck.y));
     
     return forward == coordinate ? LIKES_WEIGHT : DISLIKES_WEIGHT;

@@ -1,20 +1,20 @@
 #ifndef __GAME_H__
 #define __GAME_H__
 
-class Dot;
-class Snake;
-class World;
+#include "dot.h"
+#include "snake.h"
+#include "world.h"
 
 class Game
 {
 public:
     enum State { Running, Stuck, GameOver };
     
-    Game(World* world, Snake* snake, Dot* dot);
+    Game();
     
-    World* const world;
-    Snake* const snake;
-    Dot* const dot;
+    World world;
+    Snake snake;
+    Dot dot;
     State state;
 };
 

@@ -12,8 +12,8 @@ SnakeRenderer::SnakeRenderer() : m_color_head(0)
 
 void SnakeRenderer::render(Game* game, Display* display)
 {
-    for (int i = 0; i < game->snake->length(); i++) {
-        display->set_pixel(game->snake->get_segment_position(i), get_color(m_color_head));
+    for (int i = 0; i < game->snake.length(); i++) {
+        display->set_pixel(game->snake.get_segment_position(i), get_color(m_color_head));
     }
 }
 

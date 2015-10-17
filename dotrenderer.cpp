@@ -5,8 +5,8 @@
 
 void DotRenderer::render(Game* game, Display* display)
 {
-    if (game->world->is_valid(game->dot->position)) {
-        display->set_pixel(game->dot->position, 0xFF9999);
+    if (game->world.is_valid(game->dot.position)) {
+        display->set_pixel(game->dot.position, 0xFF9999);
     }
 }
 

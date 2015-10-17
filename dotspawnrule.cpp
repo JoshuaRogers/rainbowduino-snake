@@ -12,7 +12,7 @@ DotSpawnRule::DotSpawnRule() : m_spawn_delay(50)
 
 void DotSpawnRule::execute(Game* game)
 {
-    if (game->dot->is_spawned() || game->state != Game::Running) {
+    if (game->dot.is_spawned() || game->state != Game::Running) {
         return;
     }
     
@@ -36,8 +36,8 @@ void DotSpawnRule::place_dot(Game* game)
         possible_dot.z = random(0, 4);
         possible_dot.x = random(0, 4);
         possible_dot.y = random(0, 4);
-    } while(game->world->get_entity(possible_dot) != World::Empty);
+    } while(game->world.get_entity(possible_dot) != World::Empty);
     
-    game->dot->spawn(possible_dot);
-    game->world->set_entity(possible_dot, World::Berry);
+    game->dot.spawn(possible_dot);
+    game->world.set_entity(possible_dot, World::Berry);
 }

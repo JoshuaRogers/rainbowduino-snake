@@ -5,7 +5,7 @@
 
 void DeathRule::execute(Game* game)
 {
-    Coordinate current_position = game->snake->get_segment_position(0);
+    Coordinate current_position = game->snake.get_segment_position(0);
     
     if (current_position == m_last_position && game->state == Game::Running) {
         game->state = Game::Stuck;

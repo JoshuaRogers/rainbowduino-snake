@@ -18,7 +18,7 @@ void MoveRule::execute(Game* game)
         return;
     }
     
-    Coordinate head = game->snake->get_segment_position(0);
+    Coordinate head = game->snake.get_segment_position(0);
     Coordinate candidates[6] = {
         Coordinate(head.z + 1, head.x, head.y),
         Coordinate(head.z - 1, head.x, head.y),
@@ -42,13 +42,13 @@ void MoveRule::execute(Game* game)
     }
     
     if (is_move_valid(game, candidates[best_candidate])) {
-        game->snake->move(candidates[best_candidate]);
+        game->snake.move(candidates[best_candidate]);
     }
 }
 
 bool MoveRule::is_move_valid(Game* game, Coordinate coordinate)
 {
-    return game->world->is_valid(coordinate) && game->world->get_entity(coordinate) != World::Snake;
+    return game->world.is_valid(coordinate) && game->world.get_entity(coordinate) != World::Snake;
 }
 
 double MoveRule::score(Game* game, Coordinate coordinate)

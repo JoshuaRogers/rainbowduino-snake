@@ -4,7 +4,7 @@
 
 void DotRipenRule::execute(Game* game)
 {
-    if (game->dot->is_spawned()) {
-        game->dot->ripen();
+    if (game->dot.is_spawned()) {
+        game->dot.ripen();
     }
 }
