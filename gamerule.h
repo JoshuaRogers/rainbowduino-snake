@@ -1,13 +1,12 @@
 #ifndef __GAMERULE_H__
 #define __GAMERULE_H__
 
-#include "snake.h"
-#include "world.h"
+class Game;
 
 class GameRule
 {
 public:
-    virtual void execute() = 0;
+    virtual void execute(Game* game) = 0;
 };
 
 #endif

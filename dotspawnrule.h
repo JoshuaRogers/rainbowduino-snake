@@ -3,22 +3,14 @@
 
 #include "gamerule.h"
 
-class Dot;
-class Snake;
-class World;
-
 class DotSpawnRule : public GameRule
 {
 public:
-    DotSpawnRule(World* world, Snake* snake, Dot* dot);
-    void execute();
+    DotSpawnRule();
+    void execute(Game* game);
     
 private:
-    void place_dot();
-    
-    World* m_world;
-    Snake* m_snake;
-    Dot* m_dot;
+    void place_dot(Game* game);
     
     unsigned int m_spawn_delay;
 };

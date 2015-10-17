@@ -1,13 +1,10 @@
 #include "dot.h"
 #include "dotripenrule.h"
+#include "game.h"
 
-DotRipenRule::DotRipenRule(Dot* dot) : m_dot(dot)
+void DotRipenRule::execute(Game* game)
 {
-}
-
-void DotRipenRule::execute()
-{
-    if (m_dot->is_spawned()) {
-        m_dot->ripen();
+    if (game->dot->is_spawned()) {
+        game->dot->ripen();
     }
 }

@@ -6,18 +6,14 @@
 #include "snake.h"
 #include "world.h"
 
-MoveRule::MoveRule(Game* game) : m_game(game)
-{
-}
-
 void MoveRule::add_scorer(MoveScorer* scorer)
 {
     m_scorers.add(scorer);
 }
 
-void MoveRule::execute()
+void MoveRule::execute(Game* game)
 {
-    Coordinate head = m_game->snake->get_segment_position(0);
+    Coordinate head = game->snake->get_segment_position(0);
     Coordinate candidates[6] = {
         Coordinate(head.z + 1, head.x, head.y),
         Coordinate(head.z - 1, head.x, head.y),
@@ -32,7 +28,7 @@ void MoveRule::execute()
     for (int i = 0; i < 6; i++) {
         // An arbitrarily large negative weight that should prevent an
         // invalid candidate from being the favored candidate.
-        move_weight[i] = is_move_valid(candidates[i]) ? score(candidates[i]) : -1024;
+        move_weight[i] = is_move_valid(game, candidates[i]) ? score(game, candidates[i]) : -1024;
         
         // We only care to find the highest weight choice.
         if (move_weight[i] >= move_weight[best_candidate]) {
@@ -40,19 +36,19 @@ void MoveRule::execute()
         }
     }
     
-    m_game->snake->move(candidates[best_candidate]);
+    game->snake->move(candidates[best_candidate]);
 }
 
-bool MoveRule::is_move_valid(Coordinate coordinate)
+bool MoveRule::is_move_valid(Game* game, Coordinate coordinate)
 {
-    return m_game->world->is_valid(coordinate) && m_game->world->get_entity(coordinate) != World::Snake;
+    return game->world->is_valid(coordinate) && game->world->get_entity(coordinate) != World::Snake;
 }
 
-double MoveRule::score(Coordinate coordinate)
+double MoveRule::score(Game* game, Coordinate coordinate)
 {
     int score = 0;
     for (Node<MoveScorer*>* node = m_scorers.get_head(); node != 0; node = node->next) {
-        score += node->get_value()->weigh(m_game, coordinate);
+        score += node->get_value()->weigh(game, coordinate);
     }
     
     return score;

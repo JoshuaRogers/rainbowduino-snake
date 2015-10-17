@@ -32,7 +32,7 @@ LinkedList<GameRule*> rule_book;
 
 MoveRule* build_move_rule()
 {
-    MoveRule* move_rule = new MoveRule(game);
+    MoveRule* move_rule = new MoveRule();
     move_rule->add_scorer(new HungerScorer());
     move_rule->add_scorer(new RandomScorer());
     move_rule->add_scorer(new StraightScorer());
@@ -41,9 +41,9 @@ MoveRule* build_move_rule()
 
 void initialize_rules()
 {
-    rule_book.add(new DotDespawnRule(game->snake, game->dot));
-    rule_book.add(new DotRipenRule(game->dot));
-    rule_book.add(new DotSpawnRule(game->world, game->snake, game->dot));
+    rule_book.add(new DotDespawnRule());
+    rule_book.add(new DotRipenRule());
+    rule_book.add(new DotSpawnRule());
     rule_book.add(build_move_rule());
 }
 
@@ -73,7 +73,7 @@ void setup() {
  */
 void loop() {
     for (Node<GameRule*>* node = rule_book.get_head(); node != 0; node = node->next) {
-      node->get_value()->execute();
+      node->get_value()->execute(game);
     }
 
     display->prepare_buffer();

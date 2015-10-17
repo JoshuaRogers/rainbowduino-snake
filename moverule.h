@@ -11,15 +11,13 @@ class MoveScorer;
 class MoveRule : public GameRule
 {
 public:
-    MoveRule(Game* game);
     void add_scorer(MoveScorer* scorer);
-    void execute();
+    void execute(Game* game);
     
 private:
-    bool is_move_valid(Coordinate coordinate);
-    double score(Coordinate coordinate);
-    
-    Game* m_game;
+    bool is_move_valid(Game* game, Coordinate coordinate);
+    double score(Game* game, Coordinate coordinate);
+
     LinkedList<MoveScorer*> m_scorers;
 };
 #endif

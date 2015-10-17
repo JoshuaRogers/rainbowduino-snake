@@ -2,23 +2,24 @@
 #include "coordinate.h"
 #include "dot.h"
 #include "dotspawnrule.h"
+#include "game.h"
 #include "snake.h"
 #include "world.h"
 
-DotSpawnRule::DotSpawnRule(World* world, Snake* snake, Dot* dot) : m_world(world), m_snake(snake), m_dot(dot), m_spawn_delay(50)
+DotSpawnRule::DotSpawnRule() : m_spawn_delay(50)
 {
 }
 
-void DotSpawnRule::execute()
+void DotSpawnRule::execute(Game* game)
 {
-    if (m_dot->is_spawned()) {
+    if (game->dot->is_spawned()) {
         return;
     }
     
     if (m_spawn_delay == 0) {
         m_spawn_delay = random(256, 1024);
         m_spawn_delay = 50;
-        place_dot();
+        place_dot(game);
     }
     
     m_spawn_delay--;
@@ -27,15 +28,15 @@ void DotSpawnRule::execute()
 /**
  * Places a new dot on an unoccupied space.
  */
-void DotSpawnRule::place_dot()
+void DotSpawnRule::place_dot(Game* game)
 {
     Coordinate possible_dot;
     do {
         possible_dot.z = random(0, 4);
         possible_dot.x = random(0, 4);
         possible_dot.y = random(0, 4);
-    } while(m_world->get_entity(possible_dot) != World::Empty);
+    } while(game->world->get_entity(possible_dot) != World::Empty);
     
-    m_dot->spawn(possible_dot);
-    m_world->set_entity(possible_dot, World::Berry);
+    game->dot->spawn(possible_dot);
+    game->world->set_entity(possible_dot, World::Berry);
 }
