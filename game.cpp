@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game() : state(Running), snake(Snake(&world))
+Game::Game() : snake(Snake(&world)), state(Running)
 {
     
 }

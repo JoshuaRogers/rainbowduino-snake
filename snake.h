@@ -19,7 +19,7 @@ public:
 private:
     World* m_world;
     Coordinate m_body_ring_buffer[MAX_SNAKE_SIZE];
-    unsigned char m_ring_buffer_head;
+    int m_ring_buffer_head;
     unsigned char m_body_size;
 };
 
