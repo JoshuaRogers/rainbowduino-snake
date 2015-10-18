@@ -10,9 +10,7 @@ public:
     void render(Game* game, Display* display);
     void update();
     
-private:
-    uint32_t get_color(int i);
-    
+private:    
     int m_color_head;
 };
 

@@ -13,7 +13,7 @@ void WorldRenderer::render(Game* game, Display* display)
                 World::Entity entity = game->world.get_entity(coordinate);
 
                 if (entity == World::Empty) {
-                    display->set_pixel(coordinate, 0x000000);
+                    display->set_pixel(coordinate, Color());
                 }
             }
         }

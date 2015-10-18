@@ -15,6 +15,8 @@
 		F633D5EA1BD20B1100D39FCF /* deathrule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deathrule.h; sourceTree = "<group>"; };
 		F633D5EB1BD2A69C00D39FCF /* restartrule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = restartrule.cpp; sourceTree = "<group>"; };
 		F633D5EC1BD2A69C00D39FCF /* restartrule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = restartrule.h; sourceTree = "<group>"; };
+		F633D5EF1BD35C8100D39FCF /* color.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = color.cpp; sourceTree = "<group>"; };
+		F633D5F01BD35C8100D39FCF /* color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = color.h; sourceTree = "<group>"; };
 		F6476B6F1BC5F95B00D29B1D /* coordinate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coordinate.cpp; sourceTree = "<group>"; };
 		F6476B701BC5F95B00D29B1D /* coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coordinate.h; sourceTree = "<group>"; };
 		F6476B711BC5F95B00D29B1D /* cube.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = cube.ino; sourceTree = "<group>"; };
@@ -93,6 +95,8 @@
 		F60EDC981BC6092600C13098 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				F633D5EF1BD35C8100D39FCF /* color.cpp */,
+				F633D5F01BD35C8100D39FCF /* color.h */,
 				F6476B721BC5F95B00D29B1D /* display.cpp */,
 				F6476B731BC5F95B00D29B1D /* display.h */,
 				F6476B781BC5F95B00D29B1D /* dotrenderer.cpp */,

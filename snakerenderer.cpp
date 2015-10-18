@@ -1,3 +1,4 @@
+#include "color.h"
 #include "game.h"
 #include "snakerenderer.h"
 #include "snake.h"
@@ -13,7 +14,7 @@ SnakeRenderer::SnakeRenderer() : m_color_head(0)
 void SnakeRenderer::render(Game* game, Display* display)
 {
     for (int i = 0; i < game->snake.length(); i++) {
-        display->set_pixel(game->snake.get_segment_position(i), get_color(m_color_head));
+        display->set_pixel(game->snake.get_segment_position(i), Color(RED[m_color_head], GREEN[m_color_head], BLUE[m_color_head]));
     }
 }
 
@@ -21,11 +22,3 @@ void SnakeRenderer::update()
 {
     m_color_head = (m_color_head + 1) % 64;
 }
-
-uint32_t SnakeRenderer::get_color(int i)
-{
-    return ((uint32_t)RED[i] << 16) +
-           ((uint32_t)GREEN[i] << 8) +
-           BLUE[i];
-}
-
