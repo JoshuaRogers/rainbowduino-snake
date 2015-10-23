@@ -1,4 +1,5 @@
 #include <Rainbowduino.h>
+#include "avoidscorer.h"
 #include "deathrule.h"
 #include "display.h"
 #include "dotdespawnrule.h"
@@ -32,6 +33,7 @@ LinkedList<GameRule*> rule_book;
 MoveRule* build_move_rule()
 {
     MoveRule* move_rule = new MoveRule();
+    move_rule->add_scorer(new AvoidScorer());
     move_rule->add_scorer(new HungerScorer());
     move_rule->add_scorer(new RandomScorer());
     move_rule->add_scorer(new StraightScorer());
