@@ -1,4 +1,26 @@
+#include <rainbowduino.h>
 #include "color.h"
+
+Color Color::from_hsv(int h, double s, double v)
+{
+    double h1 = h / 60.0;
+    int h2 = floor(h1);
+    
+    double f = h1 - h2;
+    
+    double v1 = 255 * v;
+    double pv = v1 * (1 - s);
+    double qv = v1 * (1 - s * f);
+    double tv = v1 * (1 - s * (1 - f));
+    
+    if (h2 == 0) { return Color(v1, tv, pv); }
+    if (h2 == 1) { return Color(qv, v1, pv); }
+    if (h2 == 2) { return Color(pv, v1, tv); }
+    if (h2 == 3) { return Color(pv, qv, v1); }
+    if (h2 == 4) { return Color(tv, pv, v1); }
+    if (h2 == 5) { return Color(v1, pv, qv); }
+    return Color();
+}
 
 Color::Color() : r(0), g(0), b(0)
 {
