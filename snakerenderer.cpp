@@ -11,7 +11,6 @@ void SnakeRenderer::render(Game* game, Display* display)
 {
     for (int i = 0; i < game->snake.length(); i++) {
         int hue = (m_color_head - (i * 4) + 360) % 360;
-        //display->set_pixel(Coordinate(0, 0, 2), Color(100, 100, 100));
         display->set_pixel(game->snake.get_segment_position(i), Color::from_hsv(hue, 1, 1));
     }
 }

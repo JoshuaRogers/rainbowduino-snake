@@ -6,7 +6,7 @@
 #include "snake.h"
 #include "world.h"
 
-DotSpawnRule::DotSpawnRule() : m_spawn_delay(50)
+DotSpawnRule::DotSpawnRule() : m_spawn_delay(32)
 {
 }
 
@@ -17,9 +17,7 @@ void DotSpawnRule::execute(Game* game)
     }
     
     if (m_spawn_delay == 0) {
-        m_spawn_delay = random(256, 1024);
-        m_spawn_delay = 50;
-        m_spawn_delay = 1;
+        m_spawn_delay = random(64, 256);
         place_dot(game);
     }
     
