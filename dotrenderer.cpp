@@ -1,3 +1,4 @@
+#include <rainbowduino.h>
 #include "dot.h"
 #include "dotrenderer.h"
 #include "game.h"
@@ -5,9 +6,12 @@
 
 void DotRenderer::render(Game* game, Display* display)
 {
-    if (game->world.is_valid(game->dot.position)) {
-        display->set_pixel(game->dot.position, Color(0xFF, 0x99, 0x99));
+    if (!game->dot.is_spawned()) {
+        return;
     }
+
+    int age = game->dot.get_age();
+    display->set_pixel(game->dot.position, Color::from_hsv(((age * 60) % 360), min(age, 80) / 80.0, min(age, 80) / 80.0));
 }
 
 void DotRenderer::update()

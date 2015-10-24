@@ -52,9 +52,9 @@ void initialize_rules()
 
 void initialize_renderers()
 {
+    renderers.add(new WorldRenderer());
     renderers.add(new DotRenderer());
     renderers.add(new SnakeRenderer());
-    renderers.add(new WorldRenderer());
 }
 
 /**
