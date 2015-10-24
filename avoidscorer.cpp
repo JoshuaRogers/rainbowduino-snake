@@ -1,6 +1,8 @@
 #include "avoidscorer.h"
 #include "game.h"
 
+#define DISLIKE_WEIGHT -15
+
 AvoidScorer::AvoidScorer()
 {
     m_test_coordinates[0] = Coordinate(2, 3, 2);
@@ -13,7 +15,7 @@ double AvoidScorer::weigh(Game* game, Coordinate coordinate)
 {
     for (int i = 0; i < 4; i++) {
         if (coordinate == m_test_coordinates[i]) {
-            return -5;
+            return DISLIKE_WEIGHT;
         }
     }
     

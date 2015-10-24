@@ -3,8 +3,8 @@
 #include "straightscorer.h"
 #include "snake.h"
 
-#define LIKES_WEIGHT 25
-#define DISLIKES_WEIGHT -25
+#define LIKES_WEIGHT 10
+#define DISLIKES_WEIGHT -10
 
 double StraightScorer::weigh(Game* game, Coordinate coordinate)
 {

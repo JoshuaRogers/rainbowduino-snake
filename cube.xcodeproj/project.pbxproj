@@ -63,15 +63,15 @@
 		F60EDC961BC608B700C13098 /* behaviors */ = {
 			isa = PBXGroup;
 			children = (
-				F6476B7E1BC5F95B00D29B1D /* straightscorer.cpp */,
-				F6476B7F1BC5F95B00D29B1D /* straightscorer.h */,
+				F63F99C21BD9F60000D89CCD /* avoidscorer.cpp */,
+				F63F99C31BD9F60000D89CCD /* avoidscorer.h */,
 				F6476B811BC5F95B00D29B1D /* hungerscorer.cpp */,
 				F6476B821BC5F95B00D29B1D /* hungerscorer.h */,
 				F6476B881BC5F95B00D29B1D /* movescorer.h */,
 				F6476B8A1BC5F95B00D29B1D /* randomscorer.cpp */,
 				F6476B8B1BC5F95B00D29B1D /* randomscorer.h */,
-				F63F99C21BD9F60000D89CCD /* avoidscorer.cpp */,
-				F63F99C31BD9F60000D89CCD /* avoidscorer.h */,
+				F6476B7E1BC5F95B00D29B1D /* straightscorer.cpp */,
+				F6476B7F1BC5F95B00D29B1D /* straightscorer.h */,
 			);
 			name = behaviors;
 			sourceTree = "<group>";
