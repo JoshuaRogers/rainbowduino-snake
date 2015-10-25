@@ -23,7 +23,7 @@ Color SnakeRenderer::get_segment_color(Game* game, int i)
 {
     if (game->state == Game::Running) {
         int hue = (m_color_head - (i * 4) + 360) % 360;
-        return Color::from_hsv(hue, 1, 1);
+        return Color::from_hsv(hue, 1, .5);
     }
     
     int till_restart = abs(game->ticks);
