@@ -8,9 +8,6 @@ class RestartRule : public GameRule
 public:
     RestartRule();
     void execute(Game* game);
-    
-private:
-    int m_ticks_since_death;
 };
 
 #endif

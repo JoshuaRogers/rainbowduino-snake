@@ -16,6 +16,8 @@ public:
     Snake snake;
     Dot dot;
     State state;
+    
+    int ticks;
 };
 
 #endif

@@ -12,6 +12,8 @@ public:
     
 private:    
     int m_color_head;
+    
+    Color get_segment_color(Game* game, int i);
 };
 
 #endif

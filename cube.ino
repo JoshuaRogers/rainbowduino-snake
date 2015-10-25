@@ -103,5 +103,7 @@ void loop() {
         delete game;
         game = game_builder.build();
     }
+    
+    game->ticks++;
 }
 
