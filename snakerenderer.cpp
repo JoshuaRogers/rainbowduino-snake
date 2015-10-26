@@ -27,10 +27,10 @@ Color SnakeRenderer::get_segment_color(Game* game, int i)
     }
     
     int till_restart = abs(game->ticks);
-    if (till_restart + i <= 20) {
+    if (till_restart + i <= (game->snake.length() * 2) - 3) {
         return Color();
-    } else if ((till_restart + i <= 24)) {
-        return Color(255, 255, 255);
+    } else if ((till_restart + i <= game->snake.length() * 2)) {
+        return Color::from_hsv(0, 0, .5);
     }
-    return Color::from_hsv(250, 1 - (i * .05), 1);
+    return Color(0, 0, 128);
 }
