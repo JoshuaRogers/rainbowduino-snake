@@ -29,7 +29,7 @@
 #include "stuckrenderer.h"
 #include "winrenderer.h"
 
-#define TICKS_PER_REDRAW 12
+#define TICKS_PER_REDRAW 10
 #define FRAME_DELAY_MILLIS 20
 
 Display *display;
