@@ -7,6 +7,17 @@ Display::Display(int ticks_per_redraw) : m_ticks_per_redraw(ticks_per_redraw)
 
 }
 
+void Display::clear()
+{
+    for (int z = 0; z < 4; z++) {
+        for (int x = 0; x < 4; x++) {
+            for (int y = 0; y < 4; y++) {
+                set_pixel(Coordinate(z, x, y), Color());
+            }
+        }
+    }
+}
+
 void Display::draw(int tick)
 {
     for (int z = 0; z <= 3; z++) {

@@ -9,6 +9,7 @@ class Display
 {
 public:
     Display(int ticks_per_redraw);
+    void clear();
     void draw(int tick);
     void set_pixel(Coordinate coordinate, Color color);
     void tick();

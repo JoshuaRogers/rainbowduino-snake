@@ -3,7 +3,6 @@
 #include "deathrule.h"
 #include "display.h"
 #include "dotdespawnrule.h"
-#include "dotrenderer.h"
 #include "dotripenrule.h"
 #include "dotspawnrule.h"
 #include "game.h"
@@ -16,9 +15,9 @@
 #include "randomscorer.h"
 #include "renderer.h"
 #include "restartrule.h"
-#include "snakerenderer.h"
+#include "runningrenderer.h"
 #include "straightscorer.h"
-#include "worldrenderer.h"
+#include "stuckrenderer.h"
 
 #define TICKS_PER_REDRAW 12
 #define FRAME_DELAY_MILLIS 20
@@ -27,7 +26,7 @@ Display *display;
 GameBuilder game_builder;
 Game* game;
 
-LinkedList<Renderer*> renderers;
+Renderer* renderers[Game::STATE_COUNT];
 LinkedList<GameRule*> rule_book;
 
 MoveRule* build_move_rule()
@@ -52,9 +51,9 @@ void initialize_rules()
 
 void initialize_renderers()
 {
-    renderers.add(new WorldRenderer());
-    renderers.add(new DotRenderer());
-    renderers.add(new SnakeRenderer());
+    renderers[Game::GameOver] = NULL;
+    renderers[Game::Running] = new RunningRenderer();
+    renderers[Game::Stuck] = new StuckRenderer();
 }
 
 /**
@@ -80,11 +79,11 @@ void loop() {
     }
 
     display->prepare_buffer();
-    for (Node<Renderer*>* node = renderers.get_head(); node != 0; node = node->next) {
-      node->get_value()->update();
-      node->get_value()->render(game, display);
+    Renderer* state_renderer = renderers[game->state];
+    if (state_renderer != NULL) {
+        state_renderer->render(game, display);
     }
-  
+    
     for (int i = 0; i < TICKS_PER_REDRAW; i++) {
         uint32_t start = millis();
         display->draw(i);

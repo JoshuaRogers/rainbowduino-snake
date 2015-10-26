@@ -9,7 +9,6 @@ class Renderer
 {
 public:
     virtual void render(Game* game, Display* display) = 0;
-    virtual void update() = 0;
 };
 
 #endif

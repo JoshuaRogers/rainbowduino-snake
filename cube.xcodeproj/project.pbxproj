@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		F602FCD51BDDD5E70040E84B /* runningrenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = runningrenderer.cpp; sourceTree = "<group>"; };
+		F602FCD61BDDD5E70040E84B /* runningrenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = runningrenderer.h; sourceTree = "<group>"; };
+		F602FCD71BDDD9660040E84B /* stuckrenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stuckrenderer.cpp; sourceTree = "<group>"; };
+		F602FCD81BDDD9660040E84B /* stuckrenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stuckrenderer.h; sourceTree = "<group>"; };
 		F62755CE1BD09ED5007AB234 /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
 		F62755CF1BD09F4E007AB234 /* gamebuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gamebuilder.h; sourceTree = "<group>"; };
 		F62755D01BD0A192007AB234 /* gamebuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gamebuilder.cpp; sourceTree = "<group>"; };
@@ -28,8 +32,6 @@
 		F6476B751BC5F95B00D29B1D /* dot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dot.h; sourceTree = "<group>"; };
 		F6476B761BC5F95B00D29B1D /* dotdespawnrule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dotdespawnrule.cpp; sourceTree = "<group>"; };
 		F6476B771BC5F95B00D29B1D /* dotdespawnrule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dotdespawnrule.h; sourceTree = "<group>"; };
-		F6476B781BC5F95B00D29B1D /* dotrenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dotrenderer.cpp; sourceTree = "<group>"; };
-		F6476B791BC5F95B00D29B1D /* dotrenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dotrenderer.h; sourceTree = "<group>"; };
 		F6476B7A1BC5F95B00D29B1D /* dotripenrule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dotripenrule.cpp; sourceTree = "<group>"; };
 		F6476B7B1BC5F95B00D29B1D /* dotripenrule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dotripenrule.h; sourceTree = "<group>"; };
 		F6476B7C1BC5F95B00D29B1D /* dotspawnrule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dotspawnrule.cpp; sourceTree = "<group>"; };
@@ -51,12 +53,8 @@
 		F6476B8C1BC5F95B00D29B1D /* renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renderer.h; sourceTree = "<group>"; };
 		F6476B8D1BC5F95B00D29B1D /* snake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = snake.cpp; sourceTree = "<group>"; };
 		F6476B8E1BC5F95B00D29B1D /* snake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snake.h; sourceTree = "<group>"; };
-		F6476B8F1BC5F95B00D29B1D /* snakerenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = snakerenderer.cpp; sourceTree = "<group>"; };
-		F6476B901BC5F95B00D29B1D /* snakerenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snakerenderer.h; sourceTree = "<group>"; };
 		F6476B911BC5F95B00D29B1D /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
 		F6476B921BC5F95B00D29B1D /* world.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
-		F6476B931BC5F95B00D29B1D /* worldrenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = worldrenderer.cpp; sourceTree = "<group>"; };
-		F6476B941BC5F95B00D29B1D /* worldrenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = worldrenderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -103,13 +101,11 @@
 				F633D5F01BD35C8100D39FCF /* color.h */,
 				F6476B721BC5F95B00D29B1D /* display.cpp */,
 				F6476B731BC5F95B00D29B1D /* display.h */,
-				F6476B781BC5F95B00D29B1D /* dotrenderer.cpp */,
-				F6476B791BC5F95B00D29B1D /* dotrenderer.h */,
 				F6476B8C1BC5F95B00D29B1D /* renderer.h */,
-				F6476B8F1BC5F95B00D29B1D /* snakerenderer.cpp */,
-				F6476B901BC5F95B00D29B1D /* snakerenderer.h */,
-				F6476B931BC5F95B00D29B1D /* worldrenderer.cpp */,
-				F6476B941BC5F95B00D29B1D /* worldrenderer.h */,
+				F602FCD51BDDD5E70040E84B /* runningrenderer.cpp */,
+				F602FCD61BDDD5E70040E84B /* runningrenderer.h */,
+				F602FCD71BDDD9660040E84B /* stuckrenderer.cpp */,
+				F602FCD81BDDD9660040E84B /* stuckrenderer.h */,
 			);
 			name = graphics;
 			sourceTree = "<group>";
