@@ -9,7 +9,7 @@ RestartRule::RestartRule()
 
 void RestartRule::execute(Game* game)
 {
-    if (game->state == Game::Stuck) {
+    if (game->state == Game::Stuck || game->state == Game::Win) {
         if (game->ticks > 0) {
             // This is a bit arbitrary really. Just trying to ensure any death animation has sufficient time to play.
             game->ticks = (-2 * game->snake.length());

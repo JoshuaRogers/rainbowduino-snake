@@ -8,7 +8,7 @@
 class Game
 {
 public:
-    enum State { GameOver = 0, Running = 1, Stuck = 2, STATE_COUNT = 3 };
+    enum State { GameOver = 0, Running = 1, Stuck = 2, Win = 3, STATE_COUNT = 4 };
     
     Game();
     

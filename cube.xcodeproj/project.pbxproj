@@ -11,6 +11,10 @@
 		F602FCD61BDDD5E70040E84B /* runningrenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = runningrenderer.h; sourceTree = "<group>"; };
 		F602FCD71BDDD9660040E84B /* stuckrenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stuckrenderer.cpp; sourceTree = "<group>"; };
 		F602FCD81BDDD9660040E84B /* stuckrenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stuckrenderer.h; sourceTree = "<group>"; };
+		F602FCD91BDDDCAF0040E84B /* winrule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = winrule.cpp; sourceTree = "<group>"; };
+		F602FCDA1BDDDCAF0040E84B /* winrule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = winrule.h; sourceTree = "<group>"; };
+		F602FCDB1BDDDDA10040E84B /* winrenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = winrenderer.cpp; sourceTree = "<group>"; };
+		F602FCDC1BDDDDA10040E84B /* winrenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = winrenderer.h; sourceTree = "<group>"; };
 		F62755CE1BD09ED5007AB234 /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
 		F62755CF1BD09F4E007AB234 /* gamebuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gamebuilder.h; sourceTree = "<group>"; };
 		F62755D01BD0A192007AB234 /* gamebuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gamebuilder.cpp; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				F6476B871BC5F95B00D29B1D /* moverule.h */,
 				F633D5EB1BD2A69C00D39FCF /* restartrule.cpp */,
 				F633D5EC1BD2A69C00D39FCF /* restartrule.h */,
+				F602FCD91BDDDCAF0040E84B /* winrule.cpp */,
+				F602FCDA1BDDDCAF0040E84B /* winrule.h */,
 			);
 			name = rules;
 			sourceTree = "<group>";
@@ -106,6 +112,8 @@
 				F602FCD61BDDD5E70040E84B /* runningrenderer.h */,
 				F602FCD71BDDD9660040E84B /* stuckrenderer.cpp */,
 				F602FCD81BDDD9660040E84B /* stuckrenderer.h */,
+				F602FCDB1BDDDDA10040E84B /* winrenderer.cpp */,
+				F602FCDC1BDDDDA10040E84B /* winrenderer.h */,
 			);
 			name = graphics;
 			sourceTree = "<group>";

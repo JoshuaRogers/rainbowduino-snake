@@ -18,6 +18,8 @@
 #include "runningrenderer.h"
 #include "straightscorer.h"
 #include "stuckrenderer.h"
+#include "winrule.h"
+#include "winrenderer.h"
 
 #define TICKS_PER_REDRAW 12
 #define FRAME_DELAY_MILLIS 20
@@ -41,11 +43,12 @@ MoveRule* build_move_rule()
 
 void initialize_rules()
 {
+    rule_book.add(new RestartRule());
     rule_book.add(new DeathRule());
+    rule_book.add(new WinRule());
     rule_book.add(new DotDespawnRule());
     rule_book.add(new DotRipenRule());
     rule_book.add(new DotSpawnRule());
-    rule_book.add(new RestartRule());
     rule_book.add(build_move_rule());
 }
 
@@ -54,6 +57,7 @@ void initialize_renderers()
     renderers[Game::GameOver] = NULL;
     renderers[Game::Running] = new RunningRenderer();
     renderers[Game::Stuck] = new StuckRenderer();
+    renderers[Game::Win] = new WinRenderer();
 }
 
 /**
