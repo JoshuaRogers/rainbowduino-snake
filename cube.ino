@@ -1,24 +1,32 @@
 #include <Rainbowduino.h>
-#include "avoidscorer.h"
-#include "deathrule.h"
-#include "display.h"
-#include "dotdespawnrule.h"
-#include "dotripenrule.h"
-#include "dotspawnrule.h"
+
+// Game Objects
 #include "game.h"
 #include "gamebuilder.h"
-#include "gamerule.h"
-#include "hungerscorer.h"
 #include "linkedlist.h"
-#include "moverule.h"
 #include "node.h"
-#include "randomscorer.h"
-#include "renderer.h"
+
+// Game Rules
+#include "gamerule.h"
+#include "deathrule.h"
+#include "moverule.h"
 #include "restartrule.h"
-#include "runningrenderer.h"
-#include "straightscorer.h"
-#include "stuckrenderer.h"
 #include "winrule.h"
+#include "dotripenrule.h"
+#include "dotspawnrule.h"
+#include "dotdespawnrule.h"
+
+// Snake Behaviors
+#include "avoidscorer.h"
+#include "hungerscorer.h"
+#include "randomscorer.h"
+#include "straightscorer.h"
+
+// Graphics
+#include "display.h"
+#include "renderer.h"
+#include "runningrenderer.h"
+#include "stuckrenderer.h"
 #include "winrenderer.h"
 
 #define TICKS_PER_REDRAW 12
