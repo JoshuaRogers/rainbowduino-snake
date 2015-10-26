@@ -9,8 +9,8 @@ void DeathRule::execute(Game* game)
     
     if (current_position == m_last_position && game->state == Game::Running) {
         game->state = Game::Stuck;
-        Serial.println("Snake is stuck");
+        Serial.println("Snake is stuck @ " + String(game->snake.length()));
     }
     
-    m_last_position = current_position;
+    m_last_position = game->state == Game::Running ? current_position : Coordinate();
 }

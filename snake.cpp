@@ -4,6 +4,10 @@
 
 Snake::Snake(World* world) : m_world(world), m_ring_buffer_head(0), m_body_size(2)
 {
+    for (int i = 0; i < MAX_SNAKE_SIZE; i++) {
+        m_body_ring_buffer[i] = Coordinate();
+    }
+    
     move(Coordinate(0, 0, 0));
 }
 
