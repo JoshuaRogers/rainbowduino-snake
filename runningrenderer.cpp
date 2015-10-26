@@ -20,7 +20,8 @@ void RunningRenderer::render_dot(Game* game, Display* display) {
     }    
 
     int age = game->dot.get_age();
-    display->set_pixel(game->dot.position, Color::from_hsv(((age * 60) % 360), min(age, 64) / 64.0, min(age, 80) / 80.0));
+    int spin_rate = game->dot.is_ripe() ? 120 : 60;
+    display->set_pixel(game->dot.position, Color::from_hsv(((age * spin_rate) % 360), min(age, 64) / 64.0, min(age, 80) / 80.0));
 }
 
 Color RunningRenderer::get_segment_color(Game* game, int i)
